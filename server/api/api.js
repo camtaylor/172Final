@@ -3,10 +3,15 @@ var router = require('express').Router();
 // api router will mount other routers
 // for all our resources
 
-//This is the initial API Endpoint 
+//This is the initial API Endpoint
 router.get("/",function(req,res){
     res.json({"error" : false,"message" : "Hello World"});
 });
+
+//userRoutes
 router.use('/users', require('./user/userRoutes'));
- 
+
+//postRoutes and category Routes
+router.use('/posts', require('./post/postRoutes'));
+router.use("/category", require('./category/categoryRoutes'));
 module.exports = router;
