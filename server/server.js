@@ -11,7 +11,13 @@ mongoose.connect(config.db.url);
  app.use(morgan('dev'));
  app.use(bodyParser.urlencoded({ extended: true }));
  app.use(bodyParser.json());
-
+//Handle 500 error
+app.use(
+  function(err, req, res, next) {
+    console.error(err.stack)
+    res.status.send('Server cannot process request');
+  }
+);
 
 //In a large application, 
 //things could easily get out of control 

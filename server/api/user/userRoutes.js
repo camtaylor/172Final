@@ -8,6 +8,7 @@ var router = require('express').Router();
 //Then use route() to remove redundant code.
 router.route('/')
   .get(function(req, res){
+    res.send(500);
     console.log('Hey from user!!');
     res.send({ok: true});
   });
